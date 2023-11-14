@@ -1,0 +1,67 @@
+{
+    "machine": {
+        "gpu": 1,
+        "cpu": 1000,
+        "ram": 100
+    },
+    "job": {
+        "APIVersion": "V1beta1",
+        "Metadata": {
+            "CreatedAt": "0001-01-01T00:00:00Z",
+            "Requester": {}
+        },
+        "Spec": {
+            "Deal": {
+                "Concurrency": 1
+            },
+            "Docker": {
+                "Entrypoint": [
+                    "python",
+                    "/app/app.py",
+                    "--cid-source",
+                    {{.CID}},
+                    "--target-column",
+                    {{.Y}},
+                    "--ignore-columns",
+                    {{.IGNORE}}
+                ],
+                "Image": "drunnn/call_me_beast:1.0.0",
+                "EnvironmentVariables": [
+                ]
+            },
+            "Engine": "Docker",
+            "Language": {
+                "JobContext": {}
+            },
+            "Network": {
+                "Type": "None"
+            },
+            "PublisherSpec": {
+                "Type": "Estuary"
+            },
+            "Resources": {
+                "GPU": "1"
+            },
+            "Timeout": 1800,
+            "Verifier": "Noop",
+            "Wasm": {
+                "EntryModule": {}
+            },
+            "inputs": [
+                {
+                    "CID": {{.CID}},
+                    "Name": "inputs",
+                    "StorageSource": "IPFS",
+                    "path": "/inputs"
+                }
+            ],
+            "outputs": [
+                {
+                    "Name": "outputs",
+                    "StorageSource": "IPFS",
+                    "path": "/outputs"
+                }
+            ]
+        }
+    }
+}
