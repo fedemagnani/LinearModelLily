@@ -33,13 +33,14 @@ def write_buffer_to_file(data, path_to_file):
         f.write(data)
 
 
-def download_data_cid(cid):
-    url = f"http://3.23.201.90/ipfs/{cid}"
-    payload = {}
-    headers = {}
-    response = request("GET", url, headers=headers, data=payload, verify=False)
+# NO NEED OF DOWNLOADING DATA, CUZ DATA WILL BE PREDOWNLOADED
 
-    return response.content
+# def download_data_cid(cid):
+#     url = f"https://3.23.201.90/ipfs/{cid}"
+#     payload = {}
+#     headers = {}
+#     response = request("GET", url, headers=headers, data=payload)
+#     return response.content
 
 def get_logger():
     logger = logging.getLogger(__name__)
@@ -52,7 +53,12 @@ def get_logger():
 if __name__ == '__main__':
     logger = get_logger()
     logger.info('test')
-    print("TESTSTSTSTSTSTSTTSSTTSTSTSTSTSTS")
+    # we list all the files in the /inputs directory
+    print("Files in the input directory:")
+    logger.info("Files in the input directory:")
+    for file in os.listdir(input_dir):
+        print(file)
+        logger.info(file)
     parser = argparse.ArgumentParser()
     parser.add_argument('--cid-source', type=str, required=True)
     parser.add_argument('--target-column', type=str, required=True)
@@ -69,11 +75,13 @@ if __name__ == '__main__':
         print("No columns ignored")
         logger.info("No columns ignored")
 
-    # We download the file from ipfs
-    data = download_data_cid(args.cid_source)
+    # NO NEED OF DOWNLOADING DATA, CUZ DATA WILL BE PREDOWNLOADED
 
-    # We write the data to a csv file
-    write_buffer_to_file(data, input_dir+'/data.csv')
+    # # We download the file from ipfs
+    # data = download_data_cid(args.cid_source)
+
+    # # We write the data to a csv file
+    # write_buffer_to_file(data, input_dir+'/data.csv')
 
     # We read the data into a pandas dataframe
     df = pd.read_csv(input_dir+'/data.csv')
