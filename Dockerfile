@@ -12,7 +12,7 @@ FROM python:3.10.10-buster
 RUN pip install --upgrade cython
 
 ### install python dependencies if you have some
-RUN pip3 install requests
+RUN pip3 install requests==2.25.1
 RUN pip3 install pandas
 
 RUN pip3 install -U scikit-learn --no-cache-dir

@@ -34,10 +34,10 @@ def write_buffer_to_file(data, path_to_file):
 
 
 def download_data_cid(cid):
-    url = f"https://ipfs.chainsafe.io/ipfs/{cid}"
+    url = f"http://3.23.201.90/ipfs/{cid}"
     payload = {}
     headers = {}
-    response = request("GET", url, headers=headers, data=payload)
+    response = request("GET", url, headers=headers, data=payload, verify=False)
 
     return response.content
 
@@ -52,6 +52,7 @@ def get_logger():
 if __name__ == '__main__':
     logger = get_logger()
     logger.info('test')
+    print("TESTSTSTSTSTSTSTTSSTTSTSTSTSTSTS")
     parser = argparse.ArgumentParser()
     parser.add_argument('--cid-source', type=str, required=True)
     parser.add_argument('--target-column', type=str, required=True)
