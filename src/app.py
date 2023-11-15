@@ -56,9 +56,16 @@ if __name__ == '__main__':
     # we list all the files in the /inputs directory
     print("Files in the input directory:")
     logger.info("Files in the input directory:")
-    for file in os.listdir(input_dir):
-        print(file)
-        logger.info(file)
+    print("AAAAAAAAAA")
+    try:
+        for file in os.listdir(input_dir):
+            print(file)
+            logger.info(file)
+    except:
+        with open(input_dir, 'w+') as f:
+            print(f)
+            logger.info(f)
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--cid-source', type=str, required=True)
     parser.add_argument('--target-column', type=str, required=True)
