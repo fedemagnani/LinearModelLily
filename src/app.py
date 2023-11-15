@@ -67,12 +67,10 @@ if __name__ == '__main__':
             logger.info(f)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cid-source', type=str, required=True)
     parser.add_argument('--target-column', type=str, required=True)
     parser.add_argument('--ignore-columns', nargs='+', type=str, required=False)
     args = parser.parse_args()
-    print(f"Running linear model on data with cid {args.cid_source}")
-    logger.info(f"Running linear model on data with cid {args.cid_source}")
+
     print(f"Target column: {args.target_column}")
     logger.info(f"Target column: {args.target_column}")
     if args.ignore_columns:
@@ -85,7 +83,7 @@ if __name__ == '__main__':
     # NO NEED OF DOWNLOADING DATA, CUZ DATA WILL BE PREDOWNLOADED
 
     # # We download the file from ipfs
-    # data = download_data_cid(args.cid_source)
+    # data = download_data_cid(args.url_source)
 
     # # We write the data to a csv file
     # write_buffer_to_file(data, input_dir+'/data.csv')

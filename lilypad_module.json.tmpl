@@ -18,8 +18,8 @@
                 "Entrypoint": [
                     "python",
                     "/app/app.py",
-                    "--cid-source",
-                    {{.CID}},
+                    "--url-source",
+                    {{.URL}},
                     "--target-column",
                     {{.Y}},
                     "--ignore-columns",
@@ -27,7 +27,7 @@
                     {{.IGNORE2}},
                     {{.IGNORE3}}
                 ],
-                "Image": "drunnn/linear_lily:1.0.3",
+                "Image": "drunnn/linear_lily:1.0.4",
                 "EnvironmentVariables": [
                 ]
             },
@@ -51,7 +51,7 @@
             },
             "inputs": [
                 {
-                    "URL": {{ subt "https://ipfs.chainsafe.io/ipfs/%s" .CID }}",
+                    "URL": {{ .URL }}",
                     "Name": "data.csv",
                     "StorageSource": "urlDownload",
                     "path": "/inputs"
