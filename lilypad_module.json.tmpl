@@ -51,7 +51,7 @@
             },
             "inputs": [
                 {
-                    "URL": "https://ipfs.chainsafe.io/ipfs/{{.CID}},
+                    "URL": {{ subt "https://ipfs.chainsafe.io/ipfs/%s" .CID }}",
                     "Name": "data.csv",
                     "StorageSource": "urlDownload",
                     "path": "/inputs"
