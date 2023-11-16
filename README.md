@@ -55,7 +55,7 @@ sudo docker pull drunnn/linear_lily:1.0.6 | grep "Digest: sha256:" | sed 's/.*sh
 
 - We are ready to push the repo on github!
 
-- Once that we have pushed our repo, you need to create a tag for the code on github, we are calling it `v1.12`. 
+- Once that we have pushed our repo, you need to create a tag for the code on github, we are calling it `v1.13`. 
 
 - we set also our private key via
 ```
@@ -64,7 +64,7 @@ export WEB3_PRIVATE_KEY=<pvtk>
 - Now we are ready to run our job task. Notice that `--module-hash` refers to the commit hash of the update
 
 ```
-lilypad run github.com/fedemagnani/LinearModelLily:v1.12 -i URL=https://ipfs.chainsafe.io/ipfs/QmaW9TL7ACBK4VFLxg7tbSnePjDnxd4R1upu4yb5xLBuy1 -i Y="Car Purchase Amount" -i IGNORE1="Customer Name" -i IGNORE2="Customer e-mail" -i IGNORE3="Country" --module-repo https://github.com/fedemagnani/LinearModelLily --module-hash 8d4446b90a7a0499b0f125101d8504b2f7c8ab43 --module-path ./lilypad_module.json.tmpl
+lilypad run github.com/fedemagnani/LinearModelLily:v1.13 -i URL=https://ipfs.chainsafe.io/ipfs/QmaW9TL7ACBK4VFLxg7tbSnePjDnxd4R1upu4yb5xLBuy1 -i FILENAME=QmaW9TL7ACBK4VFLxg7tbSnePjDnxd4R1upu4yb5xLBuy1 -i Y="Car Purchase Amount" -i IGNORE1="Customer Name" -i IGNORE2="Customer e-mail" -i IGNORE3="Country" --module-repo https://github.com/fedemagnani/LinearModelLily --module-hash c583e742efa2d4c7aa9c038d3772ba46cbcc2a43 --module-path ./lilypad_module.json.tmpl
 ```
 ### IMPORTANT: 
 - Notice that by committing the code, a new commit hash is produced and so you need to update the prompt
