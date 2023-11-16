@@ -18,6 +18,8 @@
                 "Entrypoint": [
                     "python",
                     "/app/app.py",
+                    "--file-name",
+                    {{.FILENAME}},
                     "--target-column",
                     {{.Y}},
                     "--ignore-columns",
@@ -25,7 +27,7 @@
                     {{.IGNORE2}},
                     {{.IGNORE3}}
                 ],
-                "Image": "drunnn/linear_lily:1.0.5",
+                "Image": "drunnn/linear_lily:1.0.6",
                 "EnvironmentVariables": [
                 ]
             },

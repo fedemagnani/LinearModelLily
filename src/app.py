@@ -67,8 +67,10 @@ if __name__ == '__main__':
             logger.info(f)
 
     parser = argparse.ArgumentParser()
+    parser.add_argument('--file-name', type=str, required=True) # downloading from ipfs.chainsafe is the cid name 
     parser.add_argument('--target-column', type=str, required=True)
     parser.add_argument('--ignore-columns', nargs='+', type=str, required=False)
+
     args = parser.parse_args()
 
     print(f"Target column: {args.target_column}")
@@ -89,7 +91,7 @@ if __name__ == '__main__':
     # write_buffer_to_file(data, input_dir+'/data.csv')
 
     # We read the data into a pandas dataframe
-    df = pd.read_csv(f'{input_dir}/data.csv')
+    df = pd.read_csv(f'{input_dir}/{args.file_name}')
 
     target = df[args.target_column]
     features = df.drop(columns=[args.target_column])
