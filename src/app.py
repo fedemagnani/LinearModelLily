@@ -89,7 +89,7 @@ if __name__ == '__main__':
     # write_buffer_to_file(data, input_dir+'/data.csv')
 
     # We read the data into a pandas dataframe
-    df = pd.read_csv(input_dir+'/data.csv')
+    df = pd.read_csv(f'{input_dir}/data.csv')
 
     target = df[args.target_column]
     features = df.drop(columns=[args.target_column])

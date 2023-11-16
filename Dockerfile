@@ -18,7 +18,7 @@ RUN pip3 install pandas
 RUN pip3 install -U scikit-learn --no-cache-dir
 
 ### We make sure that we have authorizations to write on /tmp
-# RUN chmod 777 -R /tmp && chmod o+t -R /tmp 
+RUN chmod 777 -R /tmp && chmod o+t -R /tmp 
 
 # Copy the current directory contents into the container
 COPY ./src /app
